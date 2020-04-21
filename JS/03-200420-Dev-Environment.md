@@ -16,7 +16,7 @@
 
 - HTML, CSS 파일은 **렌더링 엔진**의 HTML 파서와 CSS 파서에 의해 파싱 (parsing)되어 DOM, CSSOM 트리로 변환되고 렌더 트리로 결합됨
 
-  ![img](/../images/03-render-tree-construction.png)
+  ![img](https://github.com/Detrox20/TIL/blob/master/JS/images/03-render-tree-construction.png)
 
 - 자바스크립트는 렌더링 엔진이 아닌 **자바스크립트 엔진**이 처리함. 위의 DOM 트리 생성 과정에서, HTML 파서는 script 태그를 만나면 자바스크립트 코드를 실행하기 위해 DOM 생성 프로세스를 중지하고 자바스크립트 엔진으로 제어 권한을 넘김
 
