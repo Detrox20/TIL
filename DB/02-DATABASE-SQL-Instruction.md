@@ -269,7 +269,7 @@ from country;
 
 ---
 
-**JOIN의 원리 **
+**JOIN의 원리** 
 
 | column n | column a |
 | :------: | :------: |
@@ -298,15 +298,15 @@ CREATE DATEBASE test;
 USE test;
 
 CREATE TABLE user (
-user_id int(11) unsigned NOT NULL AUTO_INCREMENT,
-name varchar(30) DEFAULT NULL,
+user_id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+name VARCHAR(30) DEFAULT NULL,
 PRIMARY KEY (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET = utf8;
 
 CREATE TABLE addr (
-id int(11) unsigned NOT NULL AUTO_INCREMENT,
-addr varchar(30) DEFAULT NULL,
-user_id int(11) DEFAULT NULL,
+id INT(11) unsigned NOT NULL AUTO_INCREMENT,
+addr VARCHAR(30) DEFAULT NULL,
+user_id INT(11) DEFAULT NULL,
 PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET = utf8;
 
@@ -382,7 +382,7 @@ FROM user
 LEFT JOIN addr
 ON user.user_id = addr.user_id;
 
-use test;
+USE test;
 SELECT user.user_id, user.name, addr.addr
 FROM addr
 LEFT JOIN user
@@ -645,8 +645,8 @@ SELECT DATABASE();
 # 제약 조건이 없는 테이블
 CREATE TABLE user1(
 	user_id INT,
-	name Varchar(20),
-	email Varchar(30),
+	name VARCHAR(20),
+	email VARCHAR(30),
 	age INT(3),
 	rdate DATE
 );
@@ -654,8 +654,8 @@ CREATE TABLE user1(
 # 제약 조건이 있는 테이블
 CREATE TABLE user2(
 	user_id INT PRIMARY KEY AUTO_INCREMENT,
-	name Varchar(20) NOT NULL, # NOT NULL 반드시 넣어야 하는 것(ex: 가입 ID처럼)
-	email Varchar(30) NOT NULL UNIQUE, # UNIQUE 같은 값을 저장할 수 없음
+	name VARCHAR(20) NOT NULL, # NOT NULL 반드시 넣어야 하는 것(ex: 가입 ID처럼)
+	email VARCHAR(30) NOT NULL UNIQUE, # UNIQUE 같은 값을 저장할 수 없음
 	age INT(3) DEFAULT 30, # DEFAULT 별도의 저장값이 없으면 DEFAULT로 설정한 값 저장
 	rdate TIMESTAMP
 )
