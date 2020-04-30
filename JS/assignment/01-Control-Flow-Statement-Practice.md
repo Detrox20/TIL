@@ -143,11 +143,11 @@ for (var i = 1; i <= 6; i++) {
 ```
 
 ```javascript
-var x = "";
+var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = 1; j <= 5; j++) {
     if (i >= j) {
-      x += "*";
+      x += '*';
     }
     if (j === 5) {
       x += '\n';
@@ -170,11 +170,11 @@ console.log(x);
 ```
 
 ```javascript
-var x = "";
+var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = 1; j <= 5; j++) {
     if (i <= j) {
-      x += "*";
+      x += '*';
     } else if (i > j) {
       x += ' ';
     }
@@ -200,11 +200,11 @@ console.log(x);
 ```
 
 ```javascript
-var x = "";
+var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = 1; j <= 5; j++) {
     if (i <= j) {
-      x += "*";
+      x += '*';
     }
     if (j === 5) {
       x += '\n';
@@ -228,11 +228,11 @@ console.log(x);
 ```
 
 ```javascript
-var x = "";
+var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = 5; j >= 1; j--) {
     if (i >= j) {
-      x += "*";
+      x += '*';
     } else if (i < j) {
       x += ' ';
     }
@@ -250,6 +250,61 @@ console.log(x);
 15. **정삼각형 출력하기**
 
 ```javascript
+// 끝까지 ' '가 없는 경우
+    *
+   ***
+  *****
+ *******
+*********
+```
+
+```javascript
+var x = '';
+for (var i = 1; i <= 5; i++) {
+  for (var j = -4; j <= 4; j++) {
+    if (i - Math.abs(j) >= 1) {
+      x += '*';
+    } else if (i - Math.abs(j) < 1) {
+      x += ' ';
+    }
+    if (i - j === 0) {
+      x += '\n';
+      break;
+    } 
+  }
+}
+
+console.log(x);
+```
+
+```javascript
+var stars = function () {
+  var x = '';
+  var rows = 5;
+  for (var i = 1; i <= 5; i++) {
+    for (var j = 1; j < 10; j++) {
+      if (j >= rows && j <= 10 - rows) {
+        x += '*';
+        if (j === 10 - rows) {
+          x += '\n';
+          break;
+        }
+      } else if (j < rows) {
+        x += ' ';
+      }
+    }
+    rows--;
+  }
+  return x;
+}
+
+console.log(stars());
+```
+
+&nbsp;
+
+```javascript
+// 끝까지 ' '가 있는 경우
     *    
    ***   
   *****  
@@ -258,11 +313,11 @@ console.log(x);
 ```
 
 ```javascript
-var x = "";
+var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = -4; j <= 4; j++) {
     if (i - Math.abs(j) >= 1) {
-      x += "*";
+      x += '*';
     } else if (i - Math.abs(j) < 1) {
       x += ' ';
     }
@@ -280,19 +335,74 @@ console.log(x);
 16. **역정삼각형 출력하기**
 
 ```javascript
+// 끝까지 ' '가 없는경우
 *********
  ******* 
   *****  
    ***   
-    *   
+    *    
 ```
 
 ```javascript
-var x = "";
+var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = -4; j <= 4; j++) {
     if (i + Math.abs(j) <= 5) {
-      x += "*";
+      x += '*';
+    } else if (i + Math.abs(j) > 5) {
+      x += ' ';
+    }
+    if (i + j === 5) {
+      x += '\n';
+      break;
+    } 
+  }
+}
+
+console.log(x);
+```
+
+```javascript
+var stars = function () {
+  var x = '';
+  var rows = 1;
+  for (var i = 1; i <= 5; i++) {
+    for (var j = 1; j < 10; j++) {
+      if (j >= rows && j <= 10 - rows) {
+        x += '*';
+        if (j === 10 - rows) {
+          x += '\n';
+          break;
+        }
+      } else if (j < rows) {
+        x += ' ';
+      }
+    }
+    rows++;
+  }
+  return x;
+}
+
+console.log(stars());
+```
+
+&nbsp;
+
+```javascript
+// 끝까지 ' '가 있는 경우
+*********
+ ******* 
+  *****  
+   ***   
+    *    
+```
+
+```javascript
+var x = '';
+for (var i = 1; i <= 5; i++) {
+  for (var j = -4; j <= 4; j++) {
+    if (i + Math.abs(j) <= 5) {
+      x += '*';
     } else if (i + Math.abs(j) > 5) {
       x += ' ';
     }
