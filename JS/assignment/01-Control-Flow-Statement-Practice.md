@@ -146,14 +146,17 @@ for (var i = 1; i <= 6; i++) {
 var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = 1; j <= 5; j++) {
+    console.log(`i: ${i}, j: ${j}`) // 15번
     if (i >= j) {
       x += '*';
-    }
-    if (j === 5) {
-      x += '\n';
+      if (i === j) {
+        x += '\n';
+        break;
+      }
     }
   }
 }
+
 console.log(x);
 ```
 
@@ -173,6 +176,7 @@ console.log(x);
 var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = 1; j <= 5; j++) {
+    console.log(`i: ${i}, j: ${j}`) // 25번
     if (i <= j) {
       x += '*';
     } else if (i > j) {
@@ -201,13 +205,15 @@ console.log(x);
 
 ```javascript
 var x = '';
-for (var i = 1; i <= 5; i++) {
+for (var i = 5; i >= 1; i--) {
   for (var j = 1; j <= 5; j++) {
-    if (i <= j) {
+    console.log(`i: ${i}, j: ${j}`) // 15번
+    if (i >= j) {
       x += '*';
-    }
-    if (j === 5) {
-      x += '\n';
+      if (i === j) {
+        x += '\n';
+        break;
+      }
     }
   }
 }
@@ -231,6 +237,7 @@ console.log(x);
 var x = '';
 for (var i = 1; i <= 5; i++) {
   for (var j = 5; j >= 1; j--) {
+    console.log(`i: ${i}, j: ${j}`) // 25번
     if (i >= j) {
       x += '*';
     } else if (i < j) {
