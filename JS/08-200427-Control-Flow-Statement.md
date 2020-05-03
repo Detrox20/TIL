@@ -257,7 +257,7 @@ for (var i = 0; i < 2; i++) {
 }
 ```
 
-<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/08-order-of-execution-of-the-for-statement" width="60%"></p>
+<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/08-order-of-execution-of-the-for-statement.png" width="60%"></p>
 
 위 예제의 for 문은 변수 i가 0으로 초기화된 상태에서 시작하여 i가 2보다 작을 때까지 코드 블록을 2번 반복 실행한다. for 문의 실행 순서를 따라가며 어떻게 동작하는지 살펴보자.
 
