@@ -342,7 +342,7 @@ console.log(x);
 16. **역정삼각형 출력하기**
 
 ```javascript
-// 끝까지 ' '가 없는경우
+// 끝까지 ' '가 없는 경우
 *********
  ******* 
   *****  
@@ -393,15 +393,41 @@ var stars = function () {
 console.log(stars());
 ```
 
+```javascript
+var stars = function () {
+  var x = '';
+  // var rows = 1;
+  for (var i = 1; i <= 5; i++) {
+    for (var j = 1; j < 10; j++) {
+      if (j >= i && j <= 10 - i) {
+        x += '*';
+        if (j === 10 - i) {
+          x += '\n';
+          break;
+        }
+      } else if (j < i) {
+        x += ' ';
+      }
+    }
+    // rows++;
+  }
+  return x;
+}
+
+console.log(stars());
+```
+
+
+
 &nbsp;
 
 ```javascript
 // 끝까지 ' '가 있는 경우
 *********
- ******* 
-  *****  
-   ***   
-    *    
+ *******
+  *****
+   ***
+    *
 ```
 
 ```javascript
