@@ -417,6 +417,30 @@ var stars = function () {
 console.log(stars());
 ```
 
+```javascript
+var stars = function () {
+  var x = '';
+  // var rows = 5;
+  for (var i = 5; i >= 1; i--) {
+    for (var j = 1; j < 10; j++) {
+      if (j >= i && j <= 10 - i) {
+        x += '*';
+        if (j === 10 - i) {
+          x += '\n';
+          break;
+        }
+      } else if (j < i) {
+        x += ' ';
+      }
+    }
+    // rows--;
+  }
+  return x;
+}
+
+console.log(stars());
+```
+
 
 
 &nbsp;
