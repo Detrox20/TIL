@@ -99,11 +99,11 @@ function bubbleSort(array) {
   let rightArray = 0;
   for (var i = 0; i < length; i++) {
     for (var j = 0; j < length - i; j++) {
-      if (finalArray[j] > finalArray[j+1]) {
+      if (finalArray[j] > finalArray[j + 1]) {
         console.log(i, j);
         leftArray = finalArray[j];
-        rightArray = finalArray[j+1];
-        finalArray[j+1] = leftArray;
+        rightArray = finalArray[j + 1];
+        finalArray[j + 1] = leftArray;
         finalArray[j] = rightArray;
       }    
     }
