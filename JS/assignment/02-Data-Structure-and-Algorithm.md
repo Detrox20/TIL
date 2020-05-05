@@ -46,29 +46,31 @@ console.log(linearSearch([1, 2, 3, 4, 5, 6], 7)); // -1
 
 ```javascript
 function binarySearch(array, target) {
-  let index = -1;
+  let count = 0;
   let frist = array[0];
   let last = array.length;
   function medianFloor (x, y) {
     return Math.floor((x + y) / 2);
   };
+  if (target < frist || target > last) count = -1;
   while (target >= frist && target <= last) {
     if (target === frist || target === last) {
-      index = target;
       break;
     }
       else if (medianFloor(frist, last) > target) {
       last = medianFloor(frist, last);
+      count++;
       console.log(frist, last);
     } else if (medianFloor(frist, last) < target) {
       frist = medianFloor(frist, last);
+      count++;
       console.log(frist, last);
     } else if (medianFloor(frist, last) === target) {
-      index = target;
+      count++;
       break;
     }
   }
-  return index;
+  return count;
 }
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 1)); // 0
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 3)); // 2
@@ -148,6 +150,8 @@ function selectionSort(array) {
 }
 
 console.log(selectionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
+console.log(selectionSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
+console.log(selectionSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
 ```
 
 &nbsp;
