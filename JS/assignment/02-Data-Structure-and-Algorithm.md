@@ -49,20 +49,17 @@ function binarySearch(array, target) {
   let index = -1;
   let frist = array[0];
   let last = array.length;
-  function medianFloor (x, y) {
+  function medianFloor(x, y) {
     return Math.floor((x + y) / 2);
-  };
+  }
   while (target >= frist && target <= last) {
     if (target === frist || target === last) {
       index = target - 1;
       break;
-    }
-      else if (medianFloor(frist, last) > target) {
+    } else if (medianFloor(frist, last) > target) {
       last = medianFloor(frist, last);
-      // console.log(frist, last);
     } else if (medianFloor(frist, last) < target) {
       frist = medianFloor(frist, last);
-      // console.log(frist, last);
     } else if (medianFloor(frist, last) === target) {
       index = target - 1;
       break;
@@ -86,21 +83,21 @@ function binarySearch(array, target) {
   let count = 0;
   let frist = array[0];
   let last = array.length;
-  function medianFloor (x, y) {
+  function medianFloor(x, y) {
     return Math.floor((x + y) / 2);
-  };
+  }
   if (target < frist || target > last) count = -1;
   while (target >= frist && target <= last) {
-      if (medianFloor(frist, last) > target) {
+    if (medianFloor(frist, last) > target) {
       last = medianFloor(frist, last);
       count++;
     } else if (medianFloor(frist, last) < target) {
       frist = medianFloor(frist, last);
       count++;
-        if(medianFloor(frist, last) + 1 === target) {
-          count += 2;
-          break;
-        }
+      if (medianFloor(frist, last) + 1 === target) {
+        count += 2;
+        break;
+      }
     } else if (medianFloor(frist, last) === target) {
       count++;
       break;
@@ -138,7 +135,6 @@ function bubbleSort(array) {
   for (var i = 0; i < length; i++) {
     for (var j = 0; j < length - i; j++) {
       if (finalArray[j] > finalArray[j + 1]) {
-        console.log(i, j);
         leftArray = finalArray[j];
         rightArray = finalArray[j + 1];
         finalArray[j + 1] = leftArray;
@@ -148,6 +144,7 @@ function bubbleSort(array) {
   }
   return finalArray;
 }
+
 console.log(bubbleSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
 console.log(bubbleSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
 console.log(bubbleSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
@@ -212,7 +209,7 @@ function insertionSort(array) {
   let rightArray = 0;
   for (var i = 0; i < length; i++) {
     for (var j = i + 1; j > 0; j--) {
-      if(finalArray[j - 1] > finalArray[j]) {
+      if (finalArray[j - 1] > finalArray[j]) {
         leftArray = finalArray[j];
         rightArray = finalArray[j - 1];
         finalArray[j] = rightArray;
