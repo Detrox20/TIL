@@ -46,6 +46,43 @@ console.log(linearSearch([1, 2, 3, 4, 5, 6], 7)); // -1
 
 ```javascript
 function binarySearch(array, target) {
+  let index = -1;
+  let frist = array[0];
+  let last = array.length;
+  function medianFloor (x, y) {
+    return Math.floor((x + y) / 2);
+  };
+  while (target >= frist && target <= last) {
+    if (target === frist || target === last) {
+      index = target - 1;
+      break;
+    }
+      else if (medianFloor(frist, last) > target) {
+      last = medianFloor(frist, last);
+      // console.log(frist, last);
+    } else if (medianFloor(frist, last) < target) {
+      frist = medianFloor(frist, last);
+      // console.log(frist, last);
+    } else if (medianFloor(frist, last) === target) {
+      index = target - 1;
+      break;
+    }
+  }
+  return index;
+}
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 1)); // 0
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 3)); // 2
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 5)); // 4
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 6)); // 5
+console.log(binarySearch([1, 2, 3, 4, 5, 6], -1)); // -1
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 0)); // -1
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 7)); // -1
+```
+
+
+
+```javascript
+function binarySearch(array, target) {
   let count = 0;
   let frist = array[0];
   let last = array.length;
@@ -54,17 +91,16 @@ function binarySearch(array, target) {
   };
   if (target < frist || target > last) count = -1;
   while (target >= frist && target <= last) {
-    if (target === frist || target === last) {
-      break;
-    }
-      else if (medianFloor(frist, last) > target) {
+      if (medianFloor(frist, last) > target) {
       last = medianFloor(frist, last);
       count++;
-      console.log(frist, last);
     } else if (medianFloor(frist, last) < target) {
       frist = medianFloor(frist, last);
       count++;
-      console.log(frist, last);
+        if(medianFloor(frist, last) + 1 === target) {
+          count += 2;
+          break;
+        }
     } else if (medianFloor(frist, last) === target) {
       count++;
       break;
@@ -72,10 +108,10 @@ function binarySearch(array, target) {
   }
   return count;
 }
-console.log(binarySearch([1, 2, 3, 4, 5, 6], 1)); // 0
-console.log(binarySearch([1, 2, 3, 4, 5, 6], 3)); // 2
-console.log(binarySearch([1, 2, 3, 4, 5, 6], 5)); // 4
-console.log(binarySearch([1, 2, 3, 4, 5, 6], 6)); // 5
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 1)); // 3
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 3)); // 1
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 5)); // 3
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 6)); // 4
 console.log(binarySearch([1, 2, 3, 4, 5, 6], -1)); // -1
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 0)); // -1
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 7)); // -1
