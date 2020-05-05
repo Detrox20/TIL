@@ -171,7 +171,7 @@ function selectionSort(array) {
   let rightArray = 0;
   for (var i = 0; i < length; i++) {
     for (var j = i + 1; j < length; j++) {
-      if(finalArray[i] > finalArray[j]) {
+      if (finalArray[i] > finalArray[j]) {
         leftArray = finalArray[i];
         rightArray = finalArray[j];
         finalArray[i] = rightArray;
