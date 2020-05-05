@@ -144,19 +144,21 @@ console.log(score === copy); // false
 
 변수 score와 copy의 값 80은 다른 메모리 공간에 저장된 별개의 값이라는 것에 주의하기 바란다. 따라서 변수 score의 값을 변경하여도 변수 copy의 값에는 어떠한 영향도 주지 않는다.
 
-<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-pass-by-value-discrete-value.png" width="70%"></p>
+<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-pass-by-value-discrete-value.png" width="90%"></p>
 <p align="center" color="gray">
     값에 의해 전달(pass by value)된 값은 다른 메모리 공간에 저장된 별개의 값이다.
 </p>
+
 
 사실 위 그림은 실제 자바스크립트 엔진의 내부 동작과 정확히 일치하지 않을 수 있다. ECMAScript 사양에는 변수를 통해 메모리를 어떻게 관리해야 하는지 명확하게 정의되어 있지 않다. 따라서 실제 자바스크립트 엔진을 구현하는 제조사에 따라 실제 내부 동작 방식은 미묘한 차이가 있을 수 있다.
 
 위 그림에서는 변수에 원시값을 갖는 변수를 할당하면 원시값이 복사되는 것으로 표현했다.([MDN의 원시값](https://developer.mozilla.org/ko/docs/Glossary/Primitive)에서도 이 방식으로 설명하고 있다.) 하지만 변수에 원시값을 갖는 변수를 할당하는 시점에는 두 변수가 같은 원시값을 참조하다가 어느 한쪽의 변수에 재할당이 이루어졌을 때 비로소 새로운 메모리 공간에 재할당된 값을 저장하도록 동작할 수도 있다. 참고로 파이썬은 이처럼 동작한다.
 
-<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-pass-by-sharing.png" width="70%"></p>
+<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-pass-by-sharing.png" width="90%"></p>
 <p align="center" color="gray">
     변수에 원시값을 갖는 변수를 할당하는 시점에는 두 변수가 같은 원시값을 참조하다가 어느 한쪽의 변수에 재할당이 이루어졌을 때 비로소 새로운 메모리 공간에 재할당된 값을 저장하는 경우
 </p>
+
 
 또한 “값에 의한 전달”이란 용어도 ECMAScript 사양에는 등장하지 않는다. 이 책에서는 타 언어에서 자주 사용하는 “값에 의한 전달”과 “참조에 의한 전달”이라는 용어를 사용하지만 “[공유에 의한 전달(pass by sharing)](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing)“이라고 표현하는 경우도 있다.
 
@@ -199,10 +201,11 @@ var copy = score;
 >
 > 자바스크립트 객체는 프로퍼티 키를 인덱스로 사용하는 [해시 테이블](https://ko.wikipedia.org/wiki/해시_테이블)(hash table, 해시 테이블은 [연관 배열](https://ko.wikipedia.org/wiki/연관_배열), map, dictionary, lookup table이라고 부르기도 한다)이라고 생각할 수 있다. 대부분의 자바스크립트 엔진은 해시 테이블과 유사하지만 보다 높은 성능을 위해 해시 테이블보다 나은 방법으로 객체를 구현한다.
 >
-> <p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-hash-table.png" width="60%"></p>
+> <p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-hash-table.png" width="50%"></p>
 > <p align="center" color="gray">
->     해시 테이블
+>  해시 테이블
 > </p>
+>
 >
 > Java, C++과 같은 클래스 기반 객체 지향 프로그래밍 언어는 사전에 정의된 클래스에 기반하여 객체(인스턴스)를 생성한다. 다시 말해, 객체를 생성하기 이전에 이미 프로퍼티와 메소드가 정해져 있으며 그대로 객체를 생성한다. 객체가 생성된 이후에는 프로퍼티를 삭제하거나 추가할 수 없다. 하지만 자바스크립트는 클래스없이 객체를 생성할 수 있으며 객체가 생성된 이후라도 동적으로 프로퍼티와 메소드를 추가할 수 있다. 이는 이론적으로 클래스 기반 객체 지향 프로그래밍 언어의 객체보다 생성과 프로퍼티 접근에 비용이 더 많이 드는 비효율적인 방식이다.
 >
@@ -229,10 +232,11 @@ var person = {
 
 원시 값을 할당한 변수가 기억하는 메모리 주소를 통해 메모리 공간에 접근하면 원시 값에 접근할 수 있다. 즉, 원시 값을 할당한 변수는 원시 값 자체를 값으로 갖는다. 하지만 객체를 할당한 변수가 기억하는 메모리 주소를 통해 메모리 공간에 접근하면 **참조 값(reference value)**에 접근할 수 있다. 참조 값은 생성된 객체가 저장된 메모리 공간의 주소, 그 자체이다.
 
-<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-object-assignment.png" width="70%"></p>
+<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-object-assignment.png" width="60%"></p>
 <p align="center" color="gray">
     객체의 할당
 </p>
+
 
 위 그림을 보면 객체를 할당한 변수에는 생성된 객체가 실제로 저장된 메모리 공간의 주소가 저장되어 있다. 이 값을 참조 값이라고 한다. 변수는 이 참조 값을 통해 객체에 접근할 수 있다.
 
@@ -268,10 +272,11 @@ console.log(person); // {name: "Kim", address: "Seoul"}
 
 원시 값은 변경 불가능한 값이므로 원시 값을 갖는 변수의 값을 변경하려면 재할당을 통해 메모리에 원시 값을 새롭게 생성해야 한다. 하지만 객체는 변경 가능한 값이므로 메모리에 저장된 객체를 직접 수정할 수 있다. 이때 객체를 할당한 변수에 재할당을 하지 않았으므로 객체를 할당한 변수의 참조 값은 변경되지 않는다.
 
-<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-object-mutable-value.png" width="70%"></p>
+<p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-object-mutable-value.png" width="60%"></p>
 <p align="center" color="gray">
     객체는 변경 가능한 값이다.
 </p>
+
 
 앞에서 언급했듯이 객체를 생성하고 관리하는 방식은 매우 복잡하며 비용이 많이 드는 일이다. 객체를 변경할 때 마다 원시 값처럼 이전 값을 복사하여 새롭게 생성한다면 명확하고 신뢰성이 확보되겠지만 객체는 크기가 매우 클 수도 있고, 원시 값처럼 크기가 일정하지도 않으며, 프로퍼티 값이 객체일 수도 있어서 복사(deep copy)하여 생성하는 비용이 많이 든다. 다시 말해, 메모리의 효율적 소비가 어렵고 퍼포먼스가 나빠진다.
 
@@ -333,8 +338,9 @@ var copy = person;
 
 <p align="center"><img src="https://github.com/Detrox20/TIL/blob/master/JS/images/11-pass-by-reference.png" width="70%"></p>
 <p align="center" color="gray">
-    객체는 변경 가능한 값이다.
+    참조에 의한 전달(pass by reference)
 </p>
+
 
 위 그림처럼 원본 person를 사본 copy에 할당하면 원본 person의 참조 값을 복사하여 copy에 저장한다. 이때 원본 person와 사본 copy는 저장된 메모리 주소는 다르지만 동일한 참조 값을 갖는다. 다시 말해, 원본 person와 사본 copy 모두 동일한 객체를 가리키고 있다. 이것은 두개의 식별자가 하나의 객체를 공유한다는 것을 의미한다. 따라서 원본 또는 사본 어떤 한쪽에서 객체를 변경(변수에 새로운 객체를 재할당하는 것이 아니라 객체의 프로퍼티 값 변경 또는 추가, 삭제)이 하면 서로 영향을 주고 받는다.
 
