@@ -128,22 +128,22 @@ console.log(binarySearch([1, 2, 3, 4, 5, 6], 7)); // -1
 
 ```javascript
 function bubbleSort(array) {
-  let finalArray = array;
   const length = array.length;
-  let leftArray = 0;
-  let rightArray = 0;
-  for (var i = 0; i < length; i++) {
-    for (var j = 0; j < length - i; j++) {
-      if (finalArray[j] > finalArray[j + 1]) {
-        leftArray = finalArray[j];
-        rightArray = finalArray[j + 1];
-        finalArray[j + 1] = leftArray;
-        finalArray[j] = rightArray;
-      }    
+  let left = 0;
+  let right = 0;
+  for (let i = 1; i < length; i++) {
+    for (let j = 0; j < length - i; j++) {
+      if (array[j] > array[j + 1]) {
+        left = array[j];
+        right = array[j + 1];
+        array[j] = right;
+        array[j + 1] = left;
+      }
     }
   }
-  return finalArray;
+  return array;
 }
+
 
 console.log(bubbleSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
 console.log(bubbleSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
@@ -165,21 +165,19 @@ console.log(bubbleSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
 
 ```javascript
 function selectionSort(array) {
-  let finalArray = array;
   const length = array.length;
-  let leftArray = 0;
-  let rightArray = 0;
-  for (var i = 0; i < length; i++) {
-    for (var j = i + 1; j < length; j++) {
-      if (finalArray[i] > finalArray[j]) {
-        leftArray = finalArray[i];
-        rightArray = finalArray[j];
-        finalArray[i] = rightArray;
-        finalArray[j] = leftArray;
-      }
+  for (let i = 0; i < length - 1; i++) {
+    let minValue = Infinity;
+    let minIndex = 0;
+    for (let j = i + 1; j < length; j++) {
+      minValue = array[j] < minValue ? (minValue = array[j]) : minValue;
+      minIndex = array[j] === minValue ? (minIndex = j) : minIndex;
+    if (array[i] > minValue) {
+      array[minIndex] = array[i];
+      array[i] = minValue;
     }
   }
-  return finalArray;
+  return array;
 }
 
 console.log(selectionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
@@ -203,21 +201,20 @@ console.log(selectionSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
 
 ```javascript
 function insertionSort(array) {
-  let finalArray = array;
   const length = array.length;
-  let leftArray = 0;
-  let rightArray = 0;
-  for (var i = 0; i < length; i++) {
-    for (var j = i + 1; j > 0; j--) {
-      if (finalArray[j - 1] > finalArray[j]) {
-        leftArray = finalArray[j];
-        rightArray = finalArray[j - 1];
-        finalArray[j] = rightArray;
-        finalArray[j - 1] = leftArray;
+  let left = 0;
+  let right = 0;
+  for (let i = 0; i < length - 1; i++) {
+    for (let j = i + 1; j > 0; j--) {
+      if (array[j] < array[j - 1]) {
+        left = array[j];
+        right = array[j - 1];
+        array[j] = right;
+        array[j - 1] = left;
       }
     }
   }
-  return finalArray;
+  return array;
 }
 
 console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
