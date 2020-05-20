@@ -172,6 +172,7 @@ function selectionSort(array) {
     for (let j = i + 1; j < length; j++) {
       minValue = array[j] < minValue ? (minValue = array[j]) : minValue;
       minIndex = array[j] === minValue ? (minIndex = j) : minIndex;
+    }
     if (array[i] > minValue) {
       array[minIndex] = array[i];
       array[i] = minValue;
