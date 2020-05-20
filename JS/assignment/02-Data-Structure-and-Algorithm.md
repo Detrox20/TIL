@@ -168,15 +168,13 @@ function selectionSort(array) {
   const length = array.length;
   for (let i = 0; i < length - 1; i++) {
     let minValue = Infinity;
-    let minIndex = 0;
+    let minIndex;
     for (let j = i + 1; j < length; j++) {
       minValue = array[j] < minValue ? (minValue = array[j]) : minValue;
       minIndex = array[j] === minValue ? (minIndex = j) : minIndex;
     }
-    if (array[i] > minValue) {
-      array[minIndex] = array[i];
-      array[i] = minValue;
-    }
+    array[minIndex] = array[i] > minValue ? (array[minIndex] = array[i]) : array[minIndex];
+    array[i] = array[i] > minValue ? (array[i] = minValue) : array[i];
   }
   return array;
 }
