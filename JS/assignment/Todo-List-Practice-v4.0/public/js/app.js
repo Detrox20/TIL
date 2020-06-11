@@ -62,7 +62,15 @@ const removeTodo = id => {
 };
 
 const toggleTodo = id => {
-  ajax.patch(`http://localhost:9000/todos/${id}`, undefined, _todos => {
+  // ajax.patch(`http://localhost:9000/todos/${id}`, undefined, _todos => {
+  //   todos = _todos;
+
+  //   render();
+  // });
+  todos = todos.map(todo => (todo.id === +id ? { ...todo, completed: !todo.completed } : todo));
+  const completed = todos.find(todo => todo.id === +id);
+
+  ajax.patch(`http://localhost:9000/todos/${id}`, completed, _todos => {
     todos = _todos;
 
     render();
