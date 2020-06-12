@@ -68,9 +68,9 @@ const toggleTodo = id => {
   //   render();
   // });
   todos = todos.map(todo => (todo.id === +id ? { ...todo, completed: !todo.completed } : todo));
-  const completed = todos.find(todo => todo.id === +id);
+  const changedTodo = todos.find(todo => todo.id === +id);
 
-  ajax.patch(`http://localhost:9000/todos/${id}`, completed, _todos => {
+  ajax.patch(`http://localhost:9000/todos/${id}`, changedTodo, _todos => {
     todos = _todos;
 
     render();
