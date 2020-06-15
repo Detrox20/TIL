@@ -33,10 +33,7 @@ const render = () => {
 
 const getTodos = () => {
   axios.get('http://localhost:9000/todos')
-    .then(response => {
-      console.log(response.data);
-      return response.data;
-    })
+    .then(response => response.data)
     .then(_todos => todos = _todos)
     .then(render)
     .catch(err => console.error(err));
