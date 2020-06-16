@@ -134,7 +134,6 @@
 
           this.tabState = +e.target.id;
           document.querySelector('.tab-content').innerHTML = `${this.getContent()}`;
-          console.log(document.getElementById(`${this.tabState}`).classList);
 
           document.querySelector('.active').classList.toggle('active');
           e.target.classList.add('active');
