@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Popup</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+    body {
+      position: relative;
+      font-family: 'Open Sans';
+      font-weight: 300;
+      background-color: #D6E1E5;
+    }
+
+    h1 {
+      color: #DB5B33;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .popup {
+      position: absolute;
+      background-color: #E9E9E9;
+      width: 70%;
+      /* margin: 0 auto; */
+      top: 0;
+      left: 10%
+    }
+
+    .btn-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    /* .popup {
+      display: none;
+    } */
+  </style>
+</head>
+
+<body>
+  <h1>JavaScript Popup</h1>
+
+  <div class="popup">
+    <h1>JavaScript Popup</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam</p>
+    <button class="btn-close">X</button>
+    <input type="text">
+    <button class="btn-ok">OK</button>
+    <button class="btn-cancel">Cancel</button>
+  </div>
+  <div class="overlay"></div>
+
+  <button class="toggle-popup">show popup</button>
+
+  <p class="popup-message"></p>
+  <script>
+    const $btnClose = document.querySelector('.btn-close');
+    const $text = document.querySelector('input');
+    const $btnOk = document.querySelector('.btn-ok');
+    const $btnCancel = document.querySelector('.btn-cancel');
+    const $popUp = document.querySelector('.popup');
+    const $showPopUp = document.querySelector('.toggle-popup');
+    const $popUpMessage = document.querySelector('.popup-message');
+
+    $btnClose.onclick = () => {
+      $popUp.style.display = 'none';
+    };
+
+    $btnOk.onclick = () => {
+      $popUpMessage.innerHTML += $text.value;
+      $text.value = '';
+    };
+
+    $btnCancel.onclick = () => {
+      $popUp.style.display = 'none';
+    };
+
+    $showPopUp.onclick = () => {
+      $popUp.style.display = 'block';
+    };
+  </script>
+</body>
+
+</html>
